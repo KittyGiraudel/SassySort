@@ -1,0 +1,18 @@
+@function shell-sort($list, $order: $default-order) {
+  $gaps: 701, 301, 132, 57, 23, 10, 4, 1;
+  @for $k from 1 through length($gaps) {
+    $gap: nth($gaps, $k);
+    $i: $gap;
+    @while $i <= length($list) {
+      $current: nth($list, $i);
+      $j: $i;
+      @while $j >= $gap and $j - $gap > 0 and not str-compare(nth($list, $j - $gap), $current, $order) {
+        $list: set-nth($list, $j, nth($list, $j - $gap));
+        $j: $j - $gap;
+      }
+      $list: set-nth($list, $j, $current);
+      $i: $i + $gap;
+    }
+  }
+  @return $list;
+}
