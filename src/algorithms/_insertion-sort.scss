@@ -1,0 +1,12 @@
+@function insertion-sort($list, $order: $default-order) {
+  @for $i from 1 through length($list) {
+    $current: nth($list, $i);
+    $j: $i - 1;
+    @while $j > 0 and not str-compare(nth($list, $j), $current, $order) {
+      $list: set-nth($list, $j + 1, nth($list, $j));
+      $j: $j - 1;
+    }
+    $list: set-nth($list, $j + 1, $current);
+  }
+  @return $list;
+}
