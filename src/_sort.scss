@@ -1,0 +1,13 @@
+// Sorting function
+
+// Order to deal with
+@import "settings/order";
+
+// Helpers
+@import "helpers/str-compare";
+@import "helpers/swap";
+
+// Sorting algorithms
+@import "algorithms/bubble-sort";
+@import "algorithms/quick-sort";
+@import "algorithms/selection-sort";

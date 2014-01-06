@@ -1,0 +1,21 @@
+@function quick-sort($list, $order: $default-order) {
+  $less:  ();
+  $equal: ();
+  $large: ();
+  @if length($list) > 1 {
+    $seed: nth($list, ceil(length($list) / 2));
+    @each $item in $list {
+      @if $item == $seed {
+        $equal: append($equal, $item, comma);
+      }
+      @else if str-compare($item, $seed, $order) {
+        $less: append($less, $item, comma);
+      }
+      @else if not str-compare($item, $seed, $order) {
+        $large: append($large, $item, comma);
+      }
+    }
+    @return join(join(quick-sort($less, $order), $equal), quick-sort($large, $order));
+  }
+  @return $list;
+}

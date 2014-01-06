@@ -1,0 +1,19 @@
+// Compares two string to determine which comes first
+//
+// @param $a: first string
+// @parem $b: second string
+// @param $order: order to deal with
+//
+// @return $boolean
+@function str-compare($a, $b, $order) {
+  $a: to-lower-case($a + unquote(""));
+  $b: to-lower-case($b + unquote(""));
+  @for $i from 1 through min(str-length($a), str-length($b)) {
+    $char-a: str-slice($a, $i, $i);
+    $char-b: str-slice($b, $i, $i);
+    @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
+      @return index($order, $char-a) < index($order, $char-b);
+    }
+  }
+  @return str-length($a) < str-length($b);
+}
