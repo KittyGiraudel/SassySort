@@ -3,11 +3,13 @@ Sass sort
 
 Here are a couple of ways to sort values (including strings) in Sass (~> 3.3).
 
+**Disclaimer!** While it can be useful to sort numbers in Sass in case of the making of a modular scale or something, it is rarely the case for strings. The main idea behind this repository is to push Sass' syntax to its limit. Long story short: *because we can*.
+
 ## Available algorithms
 
-* [bubble sort](http://en.wikipedia.org/wiki/Bubble_sort)
-* [selection sort](http://en.wikipedia.org/wiki/Selection_sort)
-* [quick sort](http://en.wikipedia.org/wiki/Quicksort)
+* [Bubble sort](http://en.wikipedia.org/wiki/Bubble_sort)
+* [Selection sort](http://en.wikipedia.org/wiki/Selection_sort)
+* [Quick sort](http://en.wikipedia.org/wiki/Quicksort)
 
 ## Credits
 

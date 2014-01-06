@@ -1,5 +1,3 @@
-// Sorting function
-
 // Order to deal with
 @import "settings/order";
 
@@ -11,3 +9,16 @@
 @import "algorithms/bubble-sort";
 @import "algorithms/quick-sort";
 @import "algorithms/selection-sort";
+
+// Sort function
+// Delaying to an algorithm-specific function
+// depending on the algorithm specified
+//
+// @param $list: list to sort
+// @param $order: order to deal with
+// @param $algorithm: algorithm to use
+//
+// @return [list]: sorted list
+@function sort($list, $order: $default-order, $algorithm: "quick") {
+	@return call("#{$algorithm}-sort", $list, $order);
+}
