@@ -1,0 +1,10 @@
+// Test case
+@import "test-cases/100-words";
+
+// Sort function
+@import "../../src/sort";
+
+sass {
+	sort: sort($list, $algorithm: "shell");
+}
+
