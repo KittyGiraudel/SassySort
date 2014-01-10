@@ -5,5 +5,5 @@
 @import "../../src/sort";
 
 sass {
-	sort: sort($list, $algorithm: "bubble");
+	sort: sort($list, $algorithm: "comb");
 }
