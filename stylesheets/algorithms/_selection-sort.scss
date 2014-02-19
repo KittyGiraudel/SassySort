@@ -3,12 +3,12 @@
     $idx: $i;
     $min: nth($list, $i);
     @for $j from $i + 1 through length($list) {
-      @if not str-compare($min, nth($list, $j), $order) {
+      @if not _str-compare($min, nth($list, $j), $order) {
         $min: nth($list, $j);
         $idx: $j;
       }
     }
-    $list: swap($list, $i, $idx);
+    $list: _swap($list, $i, $idx);
   }
   @return $list;
 }

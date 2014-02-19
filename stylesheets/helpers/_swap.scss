@@ -5,7 +5,7 @@
 // @param $b: index of second element
 //
 // @return list
-@function swap($list, $a, $b) {
+@function _swap($list, $a, $b) {
   @if abs($a) > length($list) or abs($b) > length($list) {
     @return $list;
   }

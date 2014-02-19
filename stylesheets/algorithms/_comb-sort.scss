@@ -9,8 +9,8 @@
     $i: 1;
     $swapped: false;
     @while $i + $gap <= length($list) {
-      @if not str-compare(nth($list, $i), nth($list, $i + $gap), $order) {
-        $list: swap($list, $i, $i + $gap);
+      @if not _str-compare(nth($list, $i), nth($list, $i + $gap), $order) {
+        $list: _swap($list, $i, $i + $gap);
         $swapped: true;
       }
       $i: $i + 1;

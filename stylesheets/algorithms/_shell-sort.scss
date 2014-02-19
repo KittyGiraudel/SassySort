@@ -6,7 +6,7 @@
     @while $i <= length($list) {
       $current: nth($list, $i);
       $j: $i;
-      @while $j >= $gap and $j - $gap > 0 and not str-compare(nth($list, $j - $gap), $current, $order) {
+      @while $j >= $gap and $j - $gap > 0 and not _str-compare(nth($list, $j - $gap), $current, $order) {
         $list: set-nth($list, $j, nth($list, $j - $gap));
         $j: $j - $gap;
       }

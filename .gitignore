@@ -1,3 +1,6 @@
 test/css
 config.rb
 .sass-cache
+node_modules
+tmp
+*.gem

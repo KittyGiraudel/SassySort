@@ -34,6 +34,12 @@ Here are a couple of ways to sort values (including strings) in Sass (~> 3.3).
 
 `quicksort` is well named since it is by far the fastest algorithm: about 3 times faster than `shellsort` and `insertionsort` implementations, 4 times faster than `selectionsort` and 7 times faster than `bubblesort`.
 
+## Install as a Compass extension
+
+1. `gem install SassySort`
+2. Add `require 'SassySort'` to your `config.rb`
+3. Import it in your stylesheets with `@import 'SassySort'`
+
 ## Credits
 
 Thanks to [mgechev](https://github.com/mgechev) for [his work on sorting algorithms](https://github.com/mgechev/javascript-algorithms/tree/master/src/sorting) in JavaScript which has been a great help for implementing sorting algorithms in Sass.

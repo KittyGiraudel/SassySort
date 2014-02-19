@@ -5,7 +5,7 @@
 // @param $order: order to deal with
 //
 // @return $boolean
-@function str-compare($a, $b, $order) {
+@function _str-compare($a, $b, $order) {
   @if type-of($a) == number and type-of($b) == number {
     @return $a < $b;
   }
