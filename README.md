@@ -1,4 +1,4 @@
-Sass sort
+SassySort
 =========
 
 Here are a couple of ways to sort values (including strings) in Sass (~> 3.3).
