@@ -1,0 +1,5 @@
+{
+  "name": "SassySort",
+  "description": "A collection of famous sorting algorithms implemented in Sass.",
+  "tags": ["sort", "algorithm", "sass"]
+}
