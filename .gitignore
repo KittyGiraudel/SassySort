@@ -4,3 +4,4 @@ config.rb
 node_modules
 tmp
 *.gem
+npm-debug.log
