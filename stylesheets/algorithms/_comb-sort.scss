@@ -16,6 +16,7 @@
     @if $gap < 1 { $gap: 1 }
     $i: 1;
     $swapped: false;
+
     @while $i + $gap <= length($list) {
       @if not _str-compare(nth($list, $i), nth($list, $i + $gap), $order) {
         $list: _swap($list, $i, $i + $gap);
@@ -23,6 +24,7 @@
       }
       $i: $i + 1;
     }
+
   }
 
   @return $list;

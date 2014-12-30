@@ -8,12 +8,12 @@
 /// @require {function} _swap
 @function bubble-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
-    @for $j from $i * -1 through -1 {
-      $j: abs($j);
+    @for $j from $i through 1 {
       @if $j > 1 and _str-compare(nth($list, $j), nth($list, $j - 1), $order) {
         $list: _swap($list, $j, $j - 1);
       }
     }
   }
+
   @return $list;
 }

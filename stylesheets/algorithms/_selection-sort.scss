@@ -10,13 +10,16 @@
   @for $i from 1 through length($list) {
     $idx: $i;
     $min: nth($list, $i);
+
     @for $j from $i + 1 through length($list) {
       @if not _str-compare($min, nth($list, $j), $order) {
         $min: nth($list, $j);
         $idx: $j;
       }
     }
+
     $list: _swap($list, $i, $idx);
   }
+
   @return $list;
 }
