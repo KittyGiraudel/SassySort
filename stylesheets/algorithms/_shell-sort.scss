@@ -1,3 +1,10 @@
+/// Shell sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
 @function shell-sort($list, $order: $default-order) {
   $gaps: 701, 301, 132, 57, 23, 10, 4, 1;
   @for $k from 1 through length($gaps) {

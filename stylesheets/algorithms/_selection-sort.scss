@@ -1,3 +1,11 @@
+/// Selection sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
+/// @require {function} _swap
 @function selection-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
     $idx: $i;

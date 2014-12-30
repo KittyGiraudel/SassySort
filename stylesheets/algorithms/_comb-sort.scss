@@ -1,3 +1,11 @@
+/// Comb sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
+/// @require {function} _swap
 @function comb-sort($list, $order: $default-order) {
   $gap: length($list);
   $shrink: 1.3;

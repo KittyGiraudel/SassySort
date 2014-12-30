@@ -1,14 +1,14 @@
-// Swaps values at indexes $a and $b from $list
-//
-// @param $list: list to update
-// @param $a: index of first element
-// @param $b: index of second element
-//
-// @return list
+/// Swaps values at indexes `$a` and `$b` from `$list`
+/// @access private
+/// @param {List} $list - list to update
+/// @param {Number} $a - index of first element
+/// @param {Number} $b - index of second element
+/// @return {List}
 @function _swap($list, $a, $b) {
   @if abs($a) > length($list) or abs($b) > length($list) {
     @return $list;
   }
+
   $tmp: nth($list, $a);
   $list: set-nth($list, $a, nth($list, $b));
   $list: set-nth($list, $b, $tmp);

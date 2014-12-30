@@ -1,12 +1,15 @@
-// Sort function
-// Delaying to an algorithm-specific function
-// depending on the algorithm specified
-//
-// @param $list: list to sort
-// @param $order: order to deal with
-// @param $algorithm: algorithm to use
-//
-// @return [list]: sorted list
+/// Sort function delaying to an algorithm-specific function depending on `$algorithm`
+/// @access public
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to deal with
+/// @param {String} $algorithm ("quick")  - algorithm to use
+/// @return {List} - Sorted list
+/// @require {function} bubble-sort
+/// @require {function} comb-sort
+/// @require {function} insertion-sort
+/// @require {function} quick-sort
+/// @require {function} selection-sort
+/// @require {function} shell-sort
 @function sort($list, $order: $default-order, $algorithm: "quick") {
   @return call("#{$algorithm}-sort", $list, $order);
 }
