@@ -1,16 +1,17 @@
-/*! SassySort - v0.0.1 - 2014-02-19 */
+/*! SassySort - v0.0.1 - 2014-12-30 */
+/// Default order used to determine which string comes first
+/// @type List
 $default-order:
-	"!" "#" "$" "%" "&" "'" "(" ")" "*" "+" "," "-" "." "/" "[" "\\" "]" "^" "_" "{" "|" "}" "~"
-	"0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
-	"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" !default;
+  "!" "#" "$" "%" "&" "'" "(" ")" "*" "+" "," "-" "." "/" "[" "\\" "]" "^" "_" "{" "|" "}" "~"
+  "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
+  "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" !default;
 
-// Compares two string to determine which comes first
-//
-// @param $a: first string
-// @parem $b: second string
-// @param $order: order to deal with
-//
-// @return $boolean
+/// Compares two string to determine which comes first
+/// @access private
+/// @param {String} $a - first string
+/// @parem {String} $b - second string
+/// @param {List} $order - order to deal with
+/// @return {Bool}
 @function _str-compare($a, $b, $order) {
   @if type-of($a) == number and type-of($b) == number {
     @return $a < $b;
@@ -27,23 +28,31 @@ $default-order:
   @return str-length($a) < str-length($b);
 }
 
-// Swaps values at indexes $a and $b from $list
-//
-// @param $list: list to update
-// @param $a: index of first element
-// @param $b: index of second element
-//
-// @return list
+/// Swaps values at indexes `$a` and `$b` from `$list`
+/// @access private
+/// @param {List} $list - list to update
+/// @param {Number} $a - index of first element
+/// @param {Number} $b - index of second element
+/// @return {List}
 @function _swap($list, $a, $b) {
   @if abs($a) > length($list) or abs($b) > length($list) {
     @return $list;
   }
+
   $tmp: nth($list, $a);
   $list: set-nth($list, $a, nth($list, $b));
   $list: set-nth($list, $b, $tmp);
   @return $list;
 }
 
+/// Bubble sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
+/// @require {function} _swap
 @function bubble-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
     @for $j from $i * -1 through -1 {
@@ -56,6 +65,14 @@ $default-order:
   @return $list;
 }
 
+/// Comb sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
+/// @require {function} _swap
 @function comb-sort($list, $order: $default-order) {
   $gap: length($list);
   $shrink: 1.3;
@@ -78,6 +95,13 @@ $default-order:
   @return $list;
 }
 
+/// Insertion sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
 @function insertion-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
     $current: nth($list, $i);
@@ -91,28 +115,45 @@ $default-order:
   @return $list;
 }
 
+/// Quick sort
+/// @access private
+/// @author Sam Richards
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
 @function quick-sort($list, $order: $default-order) {
   $less:  ();
   $equal: ();
   $large: ();
+
   @if length($list) > 1 {
     $seed: nth($list, ceil(length($list) / 2));
+
     @each $item in $list {
       @if $item == $seed {
         $equal: append($equal, $item, list-separator($list));
-      }
-      @else if _str-compare($item, $seed, $order) {
+      } @else if _str-compare($item, $seed, $order) {
         $less: append($less, $item, list-separator($list));
-      }
-      @else if not _str-compare($item, $seed, $order) {
+      } @else if not _str-compare($item, $seed, $order) {
         $large: append($large, $item, list-separator($list));
       }
     }
+
     @return join(join(quick-sort($less, $order), $equal), quick-sort($large, $order));
   }
+
   @return $list;
 }
 
+/// Selection sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
+/// @require {function} _swap
 @function selection-sort($list, $order: $default-order) {
   @for $i from 1 through length($list) {
     $idx: $i;
@@ -128,6 +169,13 @@ $default-order:
   @return $list;
 }
 
+/// Shell sort
+/// @access private
+/// @author Hugo Giraudel
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} _str-compare
 @function shell-sort($list, $order: $default-order) {
   $gaps: 701, 301, 132, 57, 23, 10, 4, 1;
   @for $k from 1 through length($gaps) {
@@ -147,15 +195,18 @@ $default-order:
   @return $list;
 }
 
-// Sort function
-// Delaying to an algorithm-specific function
-// depending on the algorithm specified
-//
-// @param $list: list to sort
-// @param $order: order to deal with
-// @param $algorithm: algorithm to use
-//
-// @return [list]: sorted list
+/// Sort function delaying to an algorithm-specific function depending on `$algorithm`
+/// @access public
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to deal with
+/// @param {String} $algorithm ("quick")  - algorithm to use
+/// @return {List} - Sorted list
+/// @require {function} bubble-sort
+/// @require {function} comb-sort
+/// @require {function} insertion-sort
+/// @require {function} quick-sort
+/// @require {function} selection-sort
+/// @require {function} shell-sort
 @function sort($list, $order: $default-order, $algorithm: "quick") {
   @return call("#{$algorithm}-sort", $list, $order);
 }
