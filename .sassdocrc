@@ -1,4 +1,4 @@
-sePath: "https://github.com/HugoGiraudel/SassyStrings/tree/master/stylesheets"
+sePath: "https://github.com/HugoGiraudel/SassySort/tree/master/stylesheets"
 display:
     access: ["public"]
     alias: false
