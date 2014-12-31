@@ -1,4 +1,5 @@
 {
+  "title": "SassySort",
   "name": "SassySort",
   "version": "1.0.0",
   "description": "Sorting algorithms in Sass for Sass.",
