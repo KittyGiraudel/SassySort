@@ -1,0 +1,10 @@
+sePath: "https://github.com/HugoGiraudel/SassyStrings/tree/master/stylesheets"
+display:
+    access: ["public"]
+    alias: false
+    watermark: true
+
+package: "./package.json"
+theme: "default"
+groups:
+    undefined: "General"
