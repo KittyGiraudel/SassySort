@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "SassySort"
   s.description = %q{Sass sorting function}
   s.summary = %q{A collection of famous sorting algorithms implemented in Sass for Sass.}
-  s.authors = ["Hugo Giraudel"]
-  s.email = ["hugo.giraudel@gmail.com"]
-  s.homepage = "https://github.com/HugoGiraudel/SassySort/"
+  s.authors = ["Kitty Giraudel"]
+  s.email = ["kitty.giraudel@gmail.com"]
+  s.homepage = "https://github.com/KittyGiraudel/SassySort/"
 
   # README file
   s.files = ["README.md"]
