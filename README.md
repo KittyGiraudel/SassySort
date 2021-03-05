@@ -1,7 +1,7 @@
 SassySort
 =========
 
-Here are a couple of ways to sort values (including strings) in Sass (~> 3.3). Read [API documentation](http://hugogiraudel.com/SassySort).
+Here are a couple of ways to sort values (including strings) in Sass (~> 3.3).
 
 **Disclaimer!** While it can be useful to sort numbers in Sass in case of the making of a modular scale or something, it is rarely the case for strings. The main idea behind this repository is to push Sass' syntax to its limit. Long story short: *because we can*.
 
