@@ -51,7 +51,7 @@ $default-order:
 
 /// Bubble sort
 /// @access private
-/// @author Hugo Giraudel
+/// @author Kitty Giraudel
 /// @param {List} $list - list to sort
 /// @param {List} $order ($default-order) - order to use for sorting
 /// @return {List}
@@ -71,7 +71,7 @@ $default-order:
 
 /// Comb sort
 /// @access private
-/// @author Hugo Giraudel
+/// @author Kitty Giraudel
 /// @param {List} $list - list to sort
 /// @param {List} $order ($default-order) - order to use for sorting
 /// @return {List}
@@ -103,7 +103,7 @@ $default-order:
 
 /// Insertion sort
 /// @access private
-/// @author Hugo Giraudel
+/// @author Kitty Giraudel
 /// @param {List} $list - list to sort
 /// @param {List} $order ($default-order) - order to use for sorting
 /// @return {List}
@@ -157,7 +157,7 @@ $default-order:
 
 /// Selection sort
 /// @access private
-/// @author Hugo Giraudel
+/// @author Kitty Giraudel
 /// @param {List} $list - list to sort
 /// @param {List} $order ($default-order) - order to use for sorting
 /// @return {List}
@@ -183,7 +183,7 @@ $default-order:
 
 /// Shell sort
 /// @access private
-/// @author Hugo Giraudel
+/// @author Kitty Giraudel
 /// @param {List} $list - list to sort
 /// @param {List} $order ($default-order) - order to use for sorting
 /// @return {List}
